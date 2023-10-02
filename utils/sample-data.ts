@@ -1,4 +1,4 @@
-import { Service, OnCallPerson } from '../interfaces'
+import { Service, OnCallEmployee } from '../interfaces'
 
 /**
  * Dummy Service data.
@@ -117,10 +117,10 @@ export const sampleServiceData: Service[] = [
 ];
 
 /** 
- * Dummy OnCallPerson data.
+ * Dummy OnCallEmployee data.
  * This would probably be pulled from the API of your on-call scheduling tool, such as PagerDuty.
  **/
-export const sampleOnCallPersonData: OnCallPerson[] = [
+export const sampleOnCallEmployeeData: OnCallEmployee[] = [
   {
     id: 101,
     name: 'John Doe',
