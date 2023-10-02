@@ -23,3 +23,12 @@ export type Service = {
     updatedAt: string
   }[]
 }
+
+export type OnCallPerson  = {
+  id: number
+  name: string
+  email: string
+  phone: string
+  slack: string
+  isOnCall: boolean
+}
