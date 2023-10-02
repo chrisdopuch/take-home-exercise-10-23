@@ -1,4 +1,4 @@
-import { GetStaticProps, GetStaticPaths } from 'next'
+import { GetServerSideProps } from 'next'
 
 import { OnCallEmployee } from '../../interfaces'
 import { sampleOnCallEmployeeData } from '../../utils/sample-data'
@@ -10,7 +10,7 @@ type Props = {
   errors?: string
 }
 
-const StaticPropsDetail = ({ item, errors }: Props) => {
+const OnCallEmployeeDetailPage = ({ item, errors }: Props) => {
   if (errors) {
     return (
       <Layout title="Error | Developer Dashboard">
@@ -32,28 +32,15 @@ const StaticPropsDetail = ({ item, errors }: Props) => {
   )
 }
 
-export default StaticPropsDetail
+export default OnCallEmployeeDetailPage
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  // Get the paths we want to pre-render based on OnCallEmployees
-  const paths = sampleOnCallEmployeeData.map((employee) => ({
-    params: { id: employee.id.toString() },
-  }))
-
-  // We'll pre-render only these paths at build time.
-  // { fallback: false } means other routes should 404.
-  return { paths, fallback: false }
-}
-
-// This function gets called at build time on server-side.
-// It won't be called on client-side, so you can even do
-// direct database queries.
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+// This function gets called at run time on server-side.
+export const getServerSideProps: GetServerSideProps = async (context) => {
   try {
-    const id = params?.id
+    const id = context.query?.id
     const item = sampleOnCallEmployeeData.find((data) => data.id === Number(id))
-    // By returning { props: item }, the StaticPropsDetail component
-    // will receive `item` as a prop at build time
+    // By returning { props: item }, the OnCallEmployeeDetailPage component
+    // will receive `item` as a prop at run time
     return { props: { item } }
   } catch (err: any) {
     return { props: { errors: err.message } }

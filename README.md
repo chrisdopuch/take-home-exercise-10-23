@@ -41,3 +41,6 @@ npm run type-check
 Here is where I'll put my notes while developing the application during the take home exercise.
 
 - I decided to go with a NextJS app which is overall a great React based framework for data-intensive application development
+- I am using Server Side Rendering (SSR) on the pages which need to fetch dynamic data (e.g. Services) so that they are re-fetched at runtime to keep up to date
+  - This is in opposition to SSG, which is build time - we want dynamic data when the user makes a request, not stale data from the time of the build
+  - An even more advanced approach would be to refetch the data on the clientside using polling or websockets to pull fresh data in realtime as pods spin up and deployments tick over

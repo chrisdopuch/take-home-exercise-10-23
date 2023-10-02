@@ -24,7 +24,7 @@ export type Service = {
   }[]
 }
 
-export type OnCallPerson  = {
+export type OnCallEmployee  = {
   id: number
   name: string
   email: string

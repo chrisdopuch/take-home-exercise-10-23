@@ -1,4 +1,4 @@
-import { GetStaticProps } from 'next'
+import { GetServerSideProps } from 'next'
 import Link from 'next/link'
 
 import { OnCallEmployee } from '../../interfaces'
@@ -10,11 +10,11 @@ type Props = {
   items: OnCallEmployee[]
 }
 
-const WithStaticProps = ({ items }: Props) => (
+const OnCallEmployeesPage = ({ items }: Props) => (
   <Layout title="On Call Employees List | Developer Dashboard">
     <h1>Employees List</h1>
     <p>
-      Example fetching data from inside <code>getStaticProps()</code>.
+      Example fetching data from inside <code>getServerSideProps()</code>.
     </p>
     <p>You are currently on: /onCallEmployees</p>
     <List items={items} />
@@ -24,12 +24,9 @@ const WithStaticProps = ({ items }: Props) => (
   </Layout>
 )
 
-export const getStaticProps: GetStaticProps = async () => {
-  // Example for including static props in a Next.js function component page.
-  // Don't forget to include the respective types for any props passed into
-  // the component.
+export const getServerSideProps: GetServerSideProps = async () => {
   const items: OnCallEmployee[] = sampleOnCallEmployeeData
   return { props: { items } }
 }
 
-export default WithStaticProps
+export default OnCallEmployeesPage
