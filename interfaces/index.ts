@@ -2,9 +2,24 @@
 // and then use them in any component by importing them. For
 // example, to import the interface below do:
 //
-// import { User } from 'path/to/interfaces';
+// import { Service } from 'path/to/interfaces';
 
-export type User = {
+export type Service = {
   id: number
   name: string
+  deployment: {
+    id: number
+    name: string
+    status: string
+    version: string
+    createdAt: string
+    updatedAt: string
+  }
+  pods: {
+    id: number
+    name: string
+    status: string
+    createdAt: string
+    updatedAt: string
+  }[]
 }
