@@ -1,6 +1,6 @@
-# TypeScript Next.js example
+# Interview Take Home Exercise - Developer Dashboard
 
-This is a really simple project that shows the usage of Next.js with TypeScript.
+This project is a simple NextJS UI application for displaying useful information on deployed services. The intended audience is application developers working at ABC corporation. 
 
 ## Deploy your own
 
@@ -8,40 +8,36 @@ Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_mediu
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-typescript&project-name=with-typescript&repository-name=with-typescript)
 
-## How to use it?
+## Requirements
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
+NodeJS version 12 or greater
 
-```bash
-npx create-next-app --example with-typescript with-typescript-app
-```
+## Installation
 
-```bash
-yarn create next-app --example with-typescript with-typescript-app
-```
+Install modules with this command:
 
 ```bash
-pnpm create next-app --example with-typescript with-typescript-app
+npm install
 ```
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+## Running in Development
 
-## Notes
+To run the dev server use this command:
 
-This example shows how to integrate the TypeScript type system into Next.js. Since TypeScript is supported out of the box with Next.js, all we have to do is to install TypeScript.
-
-```
-npm install --save-dev typescript
+```bash
+npm run dev
 ```
 
-To enable TypeScript's features, we install the type declarations for React and Node.
+## Running Typecheck
+
+To execute the typecheck for TypeScript run this command:
 
 ```
-npm install --save-dev @types/react @types/react-dom @types/node
+npm run type-check
 ```
 
-When we run `next dev` the next time, Next.js will start looking for any `.ts` or `.tsx` files in our project and builds it. It even automatically creates a `tsconfig.json` file for our project with the recommended settings.
+## Development Notes
 
-Next.js has built-in TypeScript declarations, so we'll get autocompletion for Next.js' modules straight away.
+Here is where I'll put my notes while developing the application during the take home exercise.
 
-A `type-check` script is also added to `package.json`, which runs TypeScript's `tsc` CLI in `noEmit` mode to run type-checking separately. You can then include this, for example, in your `test` scripts.
+- I decided to go with a NextJS app which is overall a great React based framework for data-intensive application development
