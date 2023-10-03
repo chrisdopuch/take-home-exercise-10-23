@@ -7,6 +7,12 @@
 export type Service = {
   id: number
   name: string
+  sourceControl: {
+    repo: string
+    lastCommit: string
+    pipelineStatus: string
+    pipelineUrl: string
+  }
   deployment: {
     id: number
     name: string
@@ -24,7 +30,7 @@ export type Service = {
   }[]
 }
 
-export type OnCallEmployee  = {
+export type OnCallEmployee = {
   id: number
   name: string
   email: string

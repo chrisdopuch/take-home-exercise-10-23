@@ -1,14 +1,16 @@
 import React from 'react'
 import Link from 'next/link'
+import { OnCallEmployee, Service } from '../interfaces'
 
-import { User } from '../interfaces'
+export type ListItem = OnCallEmployee | Service
 
 type Props = {
-  data: User
+  data: ListItem
+  objectType: string
 }
 
-const ListItem = ({ data }: Props) => (
-  <Link href="/users/[id]" as={`/users/${data.id}`}>
+const ListItem = ({ data, objectType }: Props) => (
+  <Link href={`/${objectType}/[id]`} as={`/${objectType}/${data.id}`}>
     {data.id}:{data.name}
   </Link>
 )

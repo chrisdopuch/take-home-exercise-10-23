@@ -1,16 +1,17 @@
 import * as React from 'react'
 import ListItem from './ListItem'
-import { User } from '../interfaces'
+import type { ListItem as ListItemType } from './ListItem'
 
 type Props = {
-  items: User[]
+  items: ListItemType[]
+  objectType: string
 }
 
-const List = ({ items }: Props) => (
+const List = ({ items, objectType }: Props) => (
   <ul>
     {items.map((item) => (
       <li key={item.id}>
-        <ListItem data={item} />
+        <ListItem data={item} objectType={objectType}/>
       </li>
     ))}
   </ul>

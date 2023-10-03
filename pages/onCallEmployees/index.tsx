@@ -17,7 +17,7 @@ const OnCallEmployeesPage = ({ items }: Props) => (
       Example fetching data from inside <code>getServerSideProps()</code>.
     </p>
     <p>You are currently on: /onCallEmployees</p>
-    <List items={items} />
+    <List items={items} objectType='onCallEmployees'/>
     <p>
       <Link href="/">Go home</Link>
     </p>

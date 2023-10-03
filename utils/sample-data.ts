@@ -6,8 +6,15 @@ import { Service, OnCallEmployee } from '../interfaces'
  * and the pods and deployment data that would be returned from a `kubectl get pods` command.
  **/
 export const sampleServiceData: Service[] = [
-  { id: 101,
+  {
+    id: 101,
     name: 'Service ABC',
+    sourceControl: {
+      repo: 'https://github.com/chrisdopuch/take-home-exercise-10-23',
+      lastCommit: 'f0a2f27b18423f7e0a7750ab4be14dd6907d194b',
+      pipelineStatus: 'Succeeded',
+      pipelineUrl: 'https://github.com/chrisdopuch/take-home-exercise-10-23/actions/runs/123456789',
+    },
     deployment: {
       name: 'deployment-abc',
       id: 101,
@@ -33,8 +40,15 @@ export const sampleServiceData: Service[] = [
       }
     ]
   },
-  { id: 102, 
+  {
+    id: 102,
     name: 'Service DEF',
+    sourceControl: {
+      repo: 'https://github.com/chrisdopuch/take-home-exercise-10-23',
+      lastCommit: 'f0a2f27b18423f7e0a7750ab4be14dd6907d194b',
+      pipelineStatus: 'failed',
+      pipelineUrl: 'https://github.com/chrisdopuch/take-home-exercise-10-23/actions/runs/123456789',
+    },
     deployment: {
       name: 'deployment-def',
       id: 102,
@@ -60,8 +74,15 @@ export const sampleServiceData: Service[] = [
       }
     ]
   },
-  { id: 103, 
+  {
+    id: 103,
     name: 'Service GHI',
+    sourceControl: {
+      repo: 'https://github.com/chrisdopuch/take-home-exercise-10-23',
+      lastCommit: 'f0a2f27b18423f7e0a7750ab4be14dd6907d194b',
+      pipelineStatus: 'failed',
+      pipelineUrl: 'https://github.com/chrisdopuch/take-home-exercise-10-23/actions/runs/123456789',
+    },
     deployment: {
       name: 'deployment-ghi',
       id: 103,
@@ -87,8 +108,15 @@ export const sampleServiceData: Service[] = [
       }
     ]
   },
-  { id: 104, 
+  {
+    id: 104,
     name: 'Service JKL',
+    sourceControl: {
+      repo: 'https://github.com/chrisdopuch/take-home-exercise-10-23',
+      lastCommit: 'f0a2f27b18423f7e0a7750ab4be14dd6907d194b',
+      pipelineStatus: 'failed',
+      pipelineUrl: 'https://github.com/chrisdopuch/take-home-exercise-10-23/actions/runs/123456789',
+    },
     deployment: {
       name: 'deployment-jkl',
       id: 104,

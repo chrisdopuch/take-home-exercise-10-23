@@ -17,7 +17,7 @@ const ServicesPage = ({ items }: Props) => (
       Example fetching data from inside <code>getServerSideProps()</code>.
     </p>
     <p>You are currently on: /services</p>
-    <List items={items} />
+    <List items={items} objectType='services'/>
     <p>
       <Link href="/">Go home</Link>
     </p>
