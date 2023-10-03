@@ -32,8 +32,22 @@ npm run dev
 
 To execute the typecheck for TypeScript run this command:
 
-```
+```bash
 npm run type-check
+```
+
+## Running Linting & Formatting
+
+You can automatically format the code with this command:
+
+```bash
+npm run format
+```
+
+Linting rules can be checked with the command:
+
+```bash
+npm run lint
 ```
 
 ## Development Notes
