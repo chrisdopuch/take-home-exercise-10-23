@@ -1,12 +1,10 @@
-// You can include shared interfaces/types in a separate file
-// and then use them in any component by importing them. For
-// example, to import the interface below do:
-//
-// import { Service } from 'path/to/interfaces';
-
 export type Service = {
   id: number;
   name: string;
+  // optional documentation fields
+  owner?: string;
+  sloDashboardUrl?: string;
+  documentationUrl?: string;
   sourceControl: {
     repo: string;
     lastCommit: string;

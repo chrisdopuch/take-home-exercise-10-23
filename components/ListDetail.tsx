@@ -28,6 +28,7 @@ const ListDetail = ({ item }: ListDetailProps) => (
     <h1>Detail for {item.name}</h1>
     <p>ID: {item.id}</p>
 
+    {/* Note: each of these sections would be good candidates to split into separate components as it grows */}
     {"isOnCall" in item && (
       <section>
         <h2>On Call Contact Info</h2>
@@ -36,6 +37,27 @@ const ListDetail = ({ item }: ListDetailProps) => (
         <p>Email: {item.email}</p>
         <p>Slack: {item.slack}</p>
       </section>
+    )}
+
+    {"owner" in item && (
+      <p>Owner: {item.owner}</p>
+    )}
+
+    {/** 
+     * Note: Each service should have an SLO and metrics Dashboard, in Grafana or Datadog or similar
+     * These should track critical metrics for the service, usually a good place to start is with Google's Golden Signals
+     * Which are Latency, Traffic, Errors, and Saturation
+     */}
+    {"sloDashboardUrl" in item && (
+      <p>SLO Dashboard: <a href={item.sloDashboardUrl}>{item.sloDashboardUrl}</a></p>
+    )}
+
+    {/**
+     * Note: Each service should have a documentation site, usually a wiki or a Github repo
+     * This should include information about the service, how to use it, how to deploy it, how to debug it, etc
+     */}
+    {"documentationUrl" in item && (
+      <p>Documentation: <a href={item.documentationUrl}>{item.documentationUrl}</a></p>
     )}
 
     {"sourceControl" in item && (
