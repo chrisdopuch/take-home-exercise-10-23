@@ -28,12 +28,20 @@ const ListDetail = ({ item }: ListDetailProps) => (
     <h1>Detail for {item.name}</h1>
     <p>ID: {item.id}</p>
 
+    {"isOnCall" in item && <section>
+      <h2>On Call Contact Info</h2>
+      <p>Current status: {item.isOnCall ? 'on call 🟢' : 'offline 🔴'}</p>
+      <p>Phone: {item.phone}</p>
+      <p>Email: {item.email}</p>
+      <p>Slack: {item.slack}</p>
+    </section>}
+
     {"sourceControl" in item && <section>
       <h2>Source Control</h2>
       <p>Repo url: <a href={item.sourceControl.repo}>{item.sourceControl.repo}</a></p>
       <p>Last Commit: <a href={`${item.sourceControl.repo}/commit/${item.sourceControl.lastCommit}`}>{item.sourceControl.lastCommit}</a></p>
       <p>Pipeline Status: {item.sourceControl.pipelineStatus} {statusEmojiMap[item.sourceControl.pipelineStatus.toLowerCase()]}</p>
-      <p>Pipeline url: {item.sourceControl.pipelineUrl}</p>
+      <p>Pipeline url: <a href={item.sourceControl.pipelineUrl}>{item.sourceControl.pipelineUrl}</a></p>
     </section>}
 
 

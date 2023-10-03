@@ -1,23 +1,22 @@
 import { GetServerSideProps } from 'next'
 import Link from 'next/link'
 
-import { Service } from '../../interfaces'
-import { sampleServiceData } from '../../utils/sample-data'
+import { OnCallEmployee, Service } from '../../interfaces'
+import { sampleServiceData, sampleOnCallEmployeeData } from '../../utils/sample-data'
 import Layout from '../../components/Layout'
 import List from '../../components/List'
 
 type Props = {
   items: Service[]
+  onCallEmployee: OnCallEmployee
 }
 
-const ServicesPage = ({ items }: Props) => (
+const ServicesPage = ({ items, onCallEmployee }: Props) => (
   <Layout title="Services List | Developer Dashboard">
+    <p>⚠️ Current on-call: <Link href='/onCallEmployees/[id]' as={`/onCallEmployees/${onCallEmployee.id}`}>{onCallEmployee.name}</Link></p>
     <h1>Services List</h1>
-    <p>
-      Example fetching data from inside <code>getServerSideProps()</code>.
-    </p>
     <p>You are currently on: /services</p>
-    <List items={items} objectType='services'/>
+    <List items={items} objectType='services' />
     <p>
       <Link href="/">Go home</Link>
     </p>
@@ -26,7 +25,8 @@ const ServicesPage = ({ items }: Props) => (
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const items: Service[] = sampleServiceData
-  return { props: { items } }
+  const onCallEmployee: OnCallEmployee = sampleOnCallEmployeeData.filter((employee) => employee.isOnCall === true)[0]
+  return { props: { items, onCallEmployee } }
 }
 
 export default ServicesPage

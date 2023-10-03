@@ -13,11 +13,8 @@ type Props = {
 const OnCallEmployeesPage = ({ items }: Props) => (
   <Layout title="On Call Employees List | Developer Dashboard">
     <h1>Employees List</h1>
-    <p>
-      Example fetching data from inside <code>getServerSideProps()</code>.
-    </p>
     <p>You are currently on: /onCallEmployees</p>
-    <List items={items} objectType='onCallEmployees'/>
+    <List items={items} objectType='onCallEmployees' />
     <p>
       <Link href="/">Go home</Link>
     </p>
