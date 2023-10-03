@@ -20,6 +20,8 @@ export const sampleServiceData: Service[] = [
     owner: "Team A",
     sloDashboardUrl: "https://slo-dashboard.com",
     documentationUrl: "https://docs.com",
+    upstreamDependencies: [{ id: 102, name: "Service DEF", status: Status.Progressing }],
+    downstreamDependencies: [{ id: 103, name: "Service GHI", status: Status.Available }, { id: 104, name: "Service JKL", status: Status.Degraded }],
     sourceControl: {
       repo: "https://github.com/chrisdopuch/take-home-exercise-10-23",
       lastCommit: "f0a2f27b18423f7e0a7750ab4be14dd6907d194b",
@@ -58,6 +60,8 @@ export const sampleServiceData: Service[] = [
     owner: "Team A",
     sloDashboardUrl: "https://slo-dashboard.com",
     documentationUrl: "https://docs.com",
+    upstreamDependencies: [],
+    downstreamDependencies: [{ id: 101, name: "Service ABC", status: Status.Available }],
     sourceControl: {
       repo: "https://github.com/chrisdopuch/take-home-exercise-10-23",
       lastCommit: "f0a2f27b18423f7e0a7750ab4be14dd6907d194b",
@@ -96,6 +100,8 @@ export const sampleServiceData: Service[] = [
     owner: "Team B",
     sloDashboardUrl: "https://slo-dashboard.com",
     documentationUrl: "https://docs.com",
+    upstreamDependencies: [{ id: 101, name: "Service ABC", status: Status.Available }],
+    downstreamDependencies: [],
     sourceControl: {
       repo: "https://github.com/chrisdopuch/take-home-exercise-10-23",
       lastCommit: "f0a2f27b18423f7e0a7750ab4be14dd6907d194b",
@@ -134,6 +140,8 @@ export const sampleServiceData: Service[] = [
     owner: "Team B",
     sloDashboardUrl: "https://slo-dashboard.com",
     documentationUrl: "https://docs.com",
+    upstreamDependencies: [{ id: 101, name: "Service ABC", status: Status.Available }],
+    downstreamDependencies: [],
     sourceControl: {
       repo: "https://github.com/chrisdopuch/take-home-exercise-10-23",
       lastCommit: "f0a2f27b18423f7e0a7750ab4be14dd6907d194b",
@@ -144,7 +152,7 @@ export const sampleServiceData: Service[] = [
     deployment: {
       name: "deployment-jkl",
       id: 104,
-      status: Status.Available,
+      status: Status.Degraded,
       version: "1.0.0",
       createdAt: "Tue, 01 Oct 2023 10:00:00 +0000",
       updatedAt: "Tue, 01 Oct 2023 12:00:00 +0000",
@@ -153,14 +161,14 @@ export const sampleServiceData: Service[] = [
       {
         id: 107,
         name: "pod-abc-1",
-        status: Status.Running,
+        status: Status.Errored,
         createdAt: "Tue, 01 Oct 2023 10:00:00 +0000",
         updatedAt: "Tue, 01 Oct 2023 12:00:00 +0000",
       },
       {
         id: 108,
         name: "pod-abc-2",
-        status: Status.Running,
+        status: Status.Errored,
         createdAt: "Tue, 01 Oct 2023 10:00:00 +0000",
         updatedAt: "Tue, 01 Oct 2023 12:00:00 +0000",
       },

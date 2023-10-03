@@ -1,7 +1,8 @@
 import * as React from "react";
+import Link from "next/link";
 
 import { ListItem } from "./ListItem";
-import { Status } from "../interfaces";
+import { Status, Dependency } from "../interfaces";
 
 type ListDetailProps = {
   item: ListItem;
@@ -18,6 +19,20 @@ const statusEmojiMap: { [key in Status]: string } = {
   Progressing: "🟡",
   Unknown: "🟠",
 };
+
+const DependencyList = ({ dependencies }: { dependencies: Dependency[] }) => (
+  <ul>
+    {dependencies.map((dependency) => (
+      <li key={dependency.id}>
+        <p>id: {dependency.id}</p>
+        <p>name: {dependency.name}</p>
+        <p>
+          status: {dependency.status} {statusEmojiMap[dependency.status]}
+        </p>
+        <Link href={`/services/${dependency.id}`}>View details</Link>
+      </li>
+    ))}
+  </ul>);
 
 /**
  *
@@ -87,6 +102,20 @@ const ListDetail = ({ item }: ListDetailProps) => (
             {item.sourceControl.pipelineUrl}
           </a>
         </p>
+      </section>
+    )}
+
+    {"upstreamDependencies" in item && item.upstreamDependencies.length > 0 && (
+      <section>
+        <h2>Upstream Dependencies</h2>
+        <DependencyList dependencies={item.upstreamDependencies} />
+      </section>
+    )}
+
+    {"downstreamDependencies" in item && item.downstreamDependencies.length > 0 && (
+      <section>
+        <h2>Downstream Dependencies</h2>
+        <DependencyList dependencies={item.downstreamDependencies} />
       </section>
     )}
 

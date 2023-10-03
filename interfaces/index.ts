@@ -1,4 +1,4 @@
-type Dependency = {
+export type Dependency = {
   id: number;
   name: string;
   status: Status;
