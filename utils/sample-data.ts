@@ -1,4 +1,4 @@
-import { Service, OnCallEmployee } from "../interfaces";
+import { Service, OnCallEmployee, Status } from "../interfaces";
 
 /**
  * Dummy Service data.
@@ -8,6 +8,10 @@ import { Service, OnCallEmployee } from "../interfaces";
  * 
  * There are other additional pieces of metadata that are also added, such as owner, documentation, etc.
  * Those would need to be fetched from other sources, such as a database or a config file.
+ * 
+ * Service connection mapping is also challenging to do in a real-world application.
+ * You could track that information via K8s labels, but that would require a decent amount of manual work.
+ * Alternatively, you could use a service mesh like Istio, though it would require a lot of setup.
  **/
 export const sampleServiceData: Service[] = [
   {
@@ -19,14 +23,14 @@ export const sampleServiceData: Service[] = [
     sourceControl: {
       repo: "https://github.com/chrisdopuch/take-home-exercise-10-23",
       lastCommit: "f0a2f27b18423f7e0a7750ab4be14dd6907d194b",
-      pipelineStatus: "Succeeded",
+      pipelineStatus: Status.Succeeded,
       pipelineUrl:
         "https://github.com/chrisdopuch/take-home-exercise-10-23/actions/runs/123456789",
     },
     deployment: {
       name: "deployment-abc",
       id: 101,
-      status: "Available",
+      status: Status.Available,
       version: "1.0.0",
       createdAt: "Tue, 01 Oct 2023 10:00:00 +0000",
       updatedAt: "Tue, 01 Oct 2023 12:00:00 +0000",
@@ -35,14 +39,14 @@ export const sampleServiceData: Service[] = [
       {
         id: 101,
         name: "pod-abc-1",
-        status: "Running",
+        status: Status.Running,
         createdAt: "Tue, 01 Oct 2023 10:00:00 +0000",
         updatedAt: "Tue, 01 Oct 2023 12:00:00 +0000",
       },
       {
         id: 102,
         name: "pod-abc-2",
-        status: "Running",
+        status: Status.Running,
         createdAt: "Tue, 01 Oct 2023 10:00:00 +0000",
         updatedAt: "Tue, 01 Oct 2023 12:00:00 +0000",
       },
@@ -57,14 +61,14 @@ export const sampleServiceData: Service[] = [
     sourceControl: {
       repo: "https://github.com/chrisdopuch/take-home-exercise-10-23",
       lastCommit: "f0a2f27b18423f7e0a7750ab4be14dd6907d194b",
-      pipelineStatus: "failed",
+      pipelineStatus: Status.Failed,
       pipelineUrl:
         "https://github.com/chrisdopuch/take-home-exercise-10-23/actions/runs/123456789",
     },
     deployment: {
       name: "deployment-def",
       id: 102,
-      status: "Progressing",
+      status: Status.Progressing,
       version: "1.0.0",
       createdAt: "Tue, 01 Oct 2023 10:00:00 +0000",
       updatedAt: "Tue, 01 Oct 2023 12:00:00 +0000",
@@ -73,14 +77,14 @@ export const sampleServiceData: Service[] = [
       {
         id: 103,
         name: "pod-def-1",
-        status: "Pending",
+        status: Status.Pending,
         createdAt: "Tue, 01 Oct 2023 10:00:00 +0000",
         updatedAt: "Tue, 01 Oct 2023 12:00:00 +0000",
       },
       {
         id: 104,
         name: "pod-def-2",
-        status: "Pending",
+        status: Status.Pending,
         createdAt: "Tue, 01 Oct 2023 10:00:00 +0000",
         updatedAt: "Tue, 01 Oct 2023 12:00:00 +0000",
       },
@@ -95,14 +99,14 @@ export const sampleServiceData: Service[] = [
     sourceControl: {
       repo: "https://github.com/chrisdopuch/take-home-exercise-10-23",
       lastCommit: "f0a2f27b18423f7e0a7750ab4be14dd6907d194b",
-      pipelineStatus: "failed",
+      pipelineStatus: Status.Failed,
       pipelineUrl:
         "https://github.com/chrisdopuch/take-home-exercise-10-23/actions/runs/123456789",
     },
     deployment: {
       name: "deployment-ghi",
       id: 103,
-      status: "Available",
+      status: Status.Available,
       version: "1.0.0",
       createdAt: "Tue, 01 Oct 2023 10:00:00 +0000",
       updatedAt: "Tue, 01 Oct 2023 12:00:00 +0000",
@@ -111,14 +115,14 @@ export const sampleServiceData: Service[] = [
       {
         id: 105,
         name: "pod-ghi-1",
-        status: "Running",
+        status: Status.Running,
         createdAt: "Tue, 01 Oct 2023 10:00:00 +0000",
         updatedAt: "Tue, 01 Oct 2023 12:00:00 +0000",
       },
       {
         id: 106,
         name: "pod-ghi-2",
-        status: "Running",
+        status: Status.Running,
         createdAt: "Tue, 01 Oct 2023 10:00:00 +0000",
         updatedAt: "Tue, 01 Oct 2023 12:00:00 +0000",
       },
@@ -133,14 +137,14 @@ export const sampleServiceData: Service[] = [
     sourceControl: {
       repo: "https://github.com/chrisdopuch/take-home-exercise-10-23",
       lastCommit: "f0a2f27b18423f7e0a7750ab4be14dd6907d194b",
-      pipelineStatus: "failed",
+      pipelineStatus: Status.Failed,
       pipelineUrl:
         "https://github.com/chrisdopuch/take-home-exercise-10-23/actions/runs/123456789",
     },
     deployment: {
       name: "deployment-jkl",
       id: 104,
-      status: "Available",
+      status: Status.Available,
       version: "1.0.0",
       createdAt: "Tue, 01 Oct 2023 10:00:00 +0000",
       updatedAt: "Tue, 01 Oct 2023 12:00:00 +0000",
@@ -149,14 +153,14 @@ export const sampleServiceData: Service[] = [
       {
         id: 107,
         name: "pod-abc-1",
-        status: "Running",
+        status: Status.Running,
         createdAt: "Tue, 01 Oct 2023 10:00:00 +0000",
         updatedAt: "Tue, 01 Oct 2023 12:00:00 +0000",
       },
       {
         id: 108,
         name: "pod-abc-2",
-        status: "Running",
+        status: Status.Running,
         createdAt: "Tue, 01 Oct 2023 10:00:00 +0000",
         updatedAt: "Tue, 01 Oct 2023 12:00:00 +0000",
       },

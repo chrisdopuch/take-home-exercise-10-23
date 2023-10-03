@@ -1,20 +1,22 @@
 import * as React from "react";
 
 import { ListItem } from "./ListItem";
+import { Status } from "../interfaces";
 
 type ListDetailProps = {
   item: ListItem;
 };
 
-const statusEmojiMap = {
-  available: "🟢",
-  succeeded: "🟢",
-  running: "🟢",
-  errored: "🔴",
-  failed: "🔴",
-  pending: "🟡",
-  progressing: "🟡",
-  unknown: "🟠",
+const statusEmojiMap: { [key in Status]: string } = {
+  Available: "🟢",
+  Succeeded: "🟢",
+  Running: "🟢",
+  Errored: "🔴",
+  Failed: "🔴",
+  Degraded: "🔴",
+  Pending: "🟡",
+  Progressing: "🟡",
+  Unknown: "🟠",
 };
 
 /**
@@ -77,7 +79,7 @@ const ListDetail = ({ item }: ListDetailProps) => (
         </p>
         <p>
           Pipeline Status: {item.sourceControl.pipelineStatus}{" "}
-          {statusEmojiMap[item.sourceControl.pipelineStatus.toLowerCase()]}
+          {statusEmojiMap[item.sourceControl.pipelineStatus]}
         </p>
         <p>
           Pipeline url:{" "}
@@ -95,7 +97,7 @@ const ListDetail = ({ item }: ListDetailProps) => (
         <p>name: {item.deployment.name}</p>
         <p>
           status: {item.deployment.status}{" "}
-          {statusEmojiMap[item.deployment.status.toLowerCase()]}
+          {statusEmojiMap[item.deployment.status]}
         </p>
         <p>version: {item.deployment.version}</p>
         <p>createdAt: {item.deployment.createdAt}</p>
@@ -112,7 +114,7 @@ const ListDetail = ({ item }: ListDetailProps) => (
               <p>id: {pod.id}</p>
               <p>name: {pod.name}</p>
               <p>
-                status: {pod.status} {statusEmojiMap[pod.status.toLowerCase()]}
+                status: {pod.status} {statusEmojiMap[pod.status]}
               </p>
               <p>createdAt: {pod.createdAt}</p>
               <p>updatedAt: {pod.updatedAt}</p>

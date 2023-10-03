@@ -1,3 +1,21 @@
+type Dependency = {
+  id: number;
+  name: string;
+  status: Status;
+};
+
+export enum Status {
+  Available = "Available",
+  Progressing = "Progressing",
+  Pending = "Pending",
+  Succeeded = "Succeeded",
+  Running = "Running",
+  Failed = "Failed",
+  Errored = "Errored",
+  Degraded = "Degraded",
+  Unknown = "Unknown",
+}
+
 export type Service = {
   id: number;
   name: string;
@@ -5,16 +23,18 @@ export type Service = {
   owner?: string;
   sloDashboardUrl?: string;
   documentationUrl?: string;
+  upstreamDependencies?: Dependency[];
+  downstreamDependencies?: Dependency[];
   sourceControl: {
     repo: string;
     lastCommit: string;
-    pipelineStatus: string;
+    pipelineStatus: Status;
     pipelineUrl: string;
   };
   deployment: {
     id: number;
     name: string;
-    status: string;
+    status: Status;
     version: string;
     createdAt: string;
     updatedAt: string;
@@ -22,7 +42,7 @@ export type Service = {
   pods: {
     id: number;
     name: string;
-    status: string;
+    status: Status;
     createdAt: string;
     updatedAt: string;
   }[];
