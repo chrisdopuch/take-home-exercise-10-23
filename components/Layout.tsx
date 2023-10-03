@@ -1,13 +1,13 @@
-import React, { ReactNode } from 'react'
-import Link from 'next/link'
-import Head from 'next/head'
+import React, { ReactNode } from "react";
+import Link from "next/link";
+import Head from "next/head";
 
 type Props = {
-  children?: ReactNode
-  title?: string
-}
+  children?: ReactNode;
+  title?: string;
+};
 
-const Layout = ({ children, title = 'This is the default title' }: Props) => (
+const Layout = ({ children, title = "This is the default title" }: Props) => (
   <div>
     <Head>
       <title>{title}</title>
@@ -16,10 +16,10 @@ const Layout = ({ children, title = 'This is the default title' }: Props) => (
     </Head>
     <header>
       <nav>
-        <Link href="/">Home</Link> | <Link href="/about">About</Link> |{' '}
-        <Link href="/services">Services List</Link> |{' '}
-        <a href="/api/services">Services API</a> |{' '}
-        <Link href="/onCallEmployees">On Call Employees List</Link> |{' '}
+        <Link href="/">Home</Link> | <Link href="/about">About</Link> |{" "}
+        <Link href="/services">Services List</Link> |{" "}
+        <a href="/api/services">Services API</a> |{" "}
+        <Link href="/onCallEmployees">On Call Employees List</Link> |{" "}
         <a href="/api/onCallEmployees">On Call Employees API</a>
       </nav>
     </header>
@@ -29,6 +29,6 @@ const Layout = ({ children, title = 'This is the default title' }: Props) => (
       <span>Copyright 2023</span>
     </footer>
   </div>
-)
+);
 
-export default Layout
+export default Layout;

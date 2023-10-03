@@ -1,48 +1,50 @@
-import { GetServerSideProps } from 'next'
+import { GetServerSideProps } from "next";
 
-import { OnCallEmployee } from '../../interfaces'
-import { sampleOnCallEmployeeData } from '../../utils/sample-data'
-import Layout from '../../components/Layout'
-import ListDetail from '../../components/ListDetail'
+import { OnCallEmployee } from "../../interfaces";
+import { sampleOnCallEmployeeData } from "../../utils/sample-data";
+import Layout from "../../components/Layout";
+import ListDetail from "../../components/ListDetail";
 
 type Props = {
-  item?: OnCallEmployee
-  errors?: string
-}
+  item?: OnCallEmployee;
+  errors?: string;
+};
 
 const OnCallEmployeeDetailPage = ({ item, errors }: Props) => {
   if (errors) {
     return (
       <Layout title="Error | Developer Dashboard">
         <p>
-          <span style={{ color: 'red' }}>Error:</span> {errors}
+          <span style={{ color: "red" }}>Error:</span> {errors}
         </p>
       </Layout>
-    )
+    );
   }
 
   return (
     <Layout
       title={`${
-        item ? item.name : 'On Call Employee Detail'
+        item ? item.name : "On Call Employee Detail"
       } | Developer Dashboard`}
     >
       {item && <ListDetail item={item} />}
     </Layout>
-  )
-}
+  );
+};
 
-export default OnCallEmployeeDetailPage
+export default OnCallEmployeeDetailPage;
 
 // This function gets called at run time on server-side.
 export const getServerSideProps: GetServerSideProps = async (context) => {
   try {
-    const id = context.query?.id
-    const item = sampleOnCallEmployeeData.find((data) => data.id === Number(id))
+    const id = context.query?.id;
+    const item = sampleOnCallEmployeeData.find(
+      (data) => data.id === Number(id),
+    );
     // By returning { props: item }, the OnCallEmployeeDetailPage component
     // will receive `item` as a prop at run time
-    return { props: { item } }
+    return { props: { item } };
   } catch (err: any) {
-    return { props: { errors: err.message } }
+    return { props: { errors: err.message } };
   }
-}
+};

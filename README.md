@@ -1,6 +1,6 @@
 # Interview Take Home Exercise - Developer Dashboard
 
-This project is a simple NextJS UI application for displaying useful information on deployed services. The intended audience is application developers working at ABC corporation. 
+This project is a simple NextJS UI application for displaying useful information on deployed services. The intended audience is application developers working at ABC corporation.
 
 ## Deploy your own
 
@@ -44,3 +44,4 @@ Here is where I'll put my notes while developing the application during the take
 - I am using Server Side Rendering (SSR) on the pages which need to fetch dynamic data (e.g. Services) so that they are re-fetched at runtime to keep up to date
   - This is in opposition to SSG, which is build time - we want dynamic data when the user makes a request, not stale data from the time of the build
   - An even more advanced approach would be to refetch the data on the clientside using polling or websockets to pull fresh data in realtime as pods spin up and deployments tick over
+- I decided to add more details around source control and CI/CD pipelines to the Service details page, which I felt was useful

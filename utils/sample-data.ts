@@ -1,4 +1,4 @@
-import { Service, OnCallEmployee } from '../interfaces'
+import { Service, OnCallEmployee } from "../interfaces";
 
 /**
  * Dummy Service data.
@@ -8,169 +8,173 @@ import { Service, OnCallEmployee } from '../interfaces'
 export const sampleServiceData: Service[] = [
   {
     id: 101,
-    name: 'Service ABC',
+    name: "Service ABC",
     sourceControl: {
-      repo: 'https://github.com/chrisdopuch/take-home-exercise-10-23',
-      lastCommit: 'f0a2f27b18423f7e0a7750ab4be14dd6907d194b',
-      pipelineStatus: 'Succeeded',
-      pipelineUrl: 'https://github.com/chrisdopuch/take-home-exercise-10-23/actions/runs/123456789',
+      repo: "https://github.com/chrisdopuch/take-home-exercise-10-23",
+      lastCommit: "f0a2f27b18423f7e0a7750ab4be14dd6907d194b",
+      pipelineStatus: "Succeeded",
+      pipelineUrl:
+        "https://github.com/chrisdopuch/take-home-exercise-10-23/actions/runs/123456789",
     },
     deployment: {
-      name: 'deployment-abc',
+      name: "deployment-abc",
       id: 101,
-      status: 'Available',
-      version: '1.0.0',
-      createdAt: 'Tue, 01 Oct 2023 10:00:00 +0000',
-      updatedAt: 'Tue, 01 Oct 2023 12:00:00 +0000',
+      status: "Available",
+      version: "1.0.0",
+      createdAt: "Tue, 01 Oct 2023 10:00:00 +0000",
+      updatedAt: "Tue, 01 Oct 2023 12:00:00 +0000",
     },
     pods: [
       {
         id: 101,
-        name: 'pod-abc-1',
-        status: 'Running',
-        createdAt: 'Tue, 01 Oct 2023 10:00:00 +0000',
-        updatedAt: 'Tue, 01 Oct 2023 12:00:00 +0000',
+        name: "pod-abc-1",
+        status: "Running",
+        createdAt: "Tue, 01 Oct 2023 10:00:00 +0000",
+        updatedAt: "Tue, 01 Oct 2023 12:00:00 +0000",
       },
       {
         id: 102,
-        name: 'pod-abc-2',
-        status: 'Running',
-        createdAt: 'Tue, 01 Oct 2023 10:00:00 +0000',
-        updatedAt: 'Tue, 01 Oct 2023 12:00:00 +0000',
-      }
-    ]
+        name: "pod-abc-2",
+        status: "Running",
+        createdAt: "Tue, 01 Oct 2023 10:00:00 +0000",
+        updatedAt: "Tue, 01 Oct 2023 12:00:00 +0000",
+      },
+    ],
   },
   {
     id: 102,
-    name: 'Service DEF',
+    name: "Service DEF",
     sourceControl: {
-      repo: 'https://github.com/chrisdopuch/take-home-exercise-10-23',
-      lastCommit: 'f0a2f27b18423f7e0a7750ab4be14dd6907d194b',
-      pipelineStatus: 'failed',
-      pipelineUrl: 'https://github.com/chrisdopuch/take-home-exercise-10-23/actions/runs/123456789',
+      repo: "https://github.com/chrisdopuch/take-home-exercise-10-23",
+      lastCommit: "f0a2f27b18423f7e0a7750ab4be14dd6907d194b",
+      pipelineStatus: "failed",
+      pipelineUrl:
+        "https://github.com/chrisdopuch/take-home-exercise-10-23/actions/runs/123456789",
     },
     deployment: {
-      name: 'deployment-def',
+      name: "deployment-def",
       id: 102,
-      status: 'Progressing',
-      version: '1.0.0',
-      createdAt: 'Tue, 01 Oct 2023 10:00:00 +0000',
-      updatedAt: 'Tue, 01 Oct 2023 12:00:00 +0000',
+      status: "Progressing",
+      version: "1.0.0",
+      createdAt: "Tue, 01 Oct 2023 10:00:00 +0000",
+      updatedAt: "Tue, 01 Oct 2023 12:00:00 +0000",
     },
     pods: [
       {
         id: 103,
-        name: 'pod-def-1',
-        status: 'Pending',
-        createdAt: 'Tue, 01 Oct 2023 10:00:00 +0000',
-        updatedAt: 'Tue, 01 Oct 2023 12:00:00 +0000',
+        name: "pod-def-1",
+        status: "Pending",
+        createdAt: "Tue, 01 Oct 2023 10:00:00 +0000",
+        updatedAt: "Tue, 01 Oct 2023 12:00:00 +0000",
       },
       {
         id: 104,
-        name: 'pod-def-2',
-        status: 'Pending',
-        createdAt: 'Tue, 01 Oct 2023 10:00:00 +0000',
-        updatedAt: 'Tue, 01 Oct 2023 12:00:00 +0000',
-      }
-    ]
+        name: "pod-def-2",
+        status: "Pending",
+        createdAt: "Tue, 01 Oct 2023 10:00:00 +0000",
+        updatedAt: "Tue, 01 Oct 2023 12:00:00 +0000",
+      },
+    ],
   },
   {
     id: 103,
-    name: 'Service GHI',
+    name: "Service GHI",
     sourceControl: {
-      repo: 'https://github.com/chrisdopuch/take-home-exercise-10-23',
-      lastCommit: 'f0a2f27b18423f7e0a7750ab4be14dd6907d194b',
-      pipelineStatus: 'failed',
-      pipelineUrl: 'https://github.com/chrisdopuch/take-home-exercise-10-23/actions/runs/123456789',
+      repo: "https://github.com/chrisdopuch/take-home-exercise-10-23",
+      lastCommit: "f0a2f27b18423f7e0a7750ab4be14dd6907d194b",
+      pipelineStatus: "failed",
+      pipelineUrl:
+        "https://github.com/chrisdopuch/take-home-exercise-10-23/actions/runs/123456789",
     },
     deployment: {
-      name: 'deployment-ghi',
+      name: "deployment-ghi",
       id: 103,
-      status: 'Available',
-      version: '1.0.0',
-      createdAt: 'Tue, 01 Oct 2023 10:00:00 +0000',
-      updatedAt: 'Tue, 01 Oct 2023 12:00:00 +0000',
+      status: "Available",
+      version: "1.0.0",
+      createdAt: "Tue, 01 Oct 2023 10:00:00 +0000",
+      updatedAt: "Tue, 01 Oct 2023 12:00:00 +0000",
     },
     pods: [
       {
         id: 105,
-        name: 'pod-ghi-1',
-        status: 'Running',
-        createdAt: 'Tue, 01 Oct 2023 10:00:00 +0000',
-        updatedAt: 'Tue, 01 Oct 2023 12:00:00 +0000',
+        name: "pod-ghi-1",
+        status: "Running",
+        createdAt: "Tue, 01 Oct 2023 10:00:00 +0000",
+        updatedAt: "Tue, 01 Oct 2023 12:00:00 +0000",
       },
       {
         id: 106,
-        name: 'pod-ghi-2',
-        status: 'Running',
-        createdAt: 'Tue, 01 Oct 2023 10:00:00 +0000',
-        updatedAt: 'Tue, 01 Oct 2023 12:00:00 +0000',
-      }
-    ]
+        name: "pod-ghi-2",
+        status: "Running",
+        createdAt: "Tue, 01 Oct 2023 10:00:00 +0000",
+        updatedAt: "Tue, 01 Oct 2023 12:00:00 +0000",
+      },
+    ],
   },
   {
     id: 104,
-    name: 'Service JKL',
+    name: "Service JKL",
     sourceControl: {
-      repo: 'https://github.com/chrisdopuch/take-home-exercise-10-23',
-      lastCommit: 'f0a2f27b18423f7e0a7750ab4be14dd6907d194b',
-      pipelineStatus: 'failed',
-      pipelineUrl: 'https://github.com/chrisdopuch/take-home-exercise-10-23/actions/runs/123456789',
+      repo: "https://github.com/chrisdopuch/take-home-exercise-10-23",
+      lastCommit: "f0a2f27b18423f7e0a7750ab4be14dd6907d194b",
+      pipelineStatus: "failed",
+      pipelineUrl:
+        "https://github.com/chrisdopuch/take-home-exercise-10-23/actions/runs/123456789",
     },
     deployment: {
-      name: 'deployment-jkl',
+      name: "deployment-jkl",
       id: 104,
-      status: 'Available',
-      version: '1.0.0',
-      createdAt: 'Tue, 01 Oct 2023 10:00:00 +0000',
-      updatedAt: 'Tue, 01 Oct 2023 12:00:00 +0000',
+      status: "Available",
+      version: "1.0.0",
+      createdAt: "Tue, 01 Oct 2023 10:00:00 +0000",
+      updatedAt: "Tue, 01 Oct 2023 12:00:00 +0000",
     },
     pods: [
       {
         id: 107,
-        name: 'pod-abc-1',
-        status: 'Running',
-        createdAt: 'Tue, 01 Oct 2023 10:00:00 +0000',
-        updatedAt: 'Tue, 01 Oct 2023 12:00:00 +0000',
+        name: "pod-abc-1",
+        status: "Running",
+        createdAt: "Tue, 01 Oct 2023 10:00:00 +0000",
+        updatedAt: "Tue, 01 Oct 2023 12:00:00 +0000",
       },
       {
         id: 108,
-        name: 'pod-abc-2',
-        status: 'Running',
-        createdAt: 'Tue, 01 Oct 2023 10:00:00 +0000',
-        updatedAt: 'Tue, 01 Oct 2023 12:00:00 +0000',
-      }
-    ]
+        name: "pod-abc-2",
+        status: "Running",
+        createdAt: "Tue, 01 Oct 2023 10:00:00 +0000",
+        updatedAt: "Tue, 01 Oct 2023 12:00:00 +0000",
+      },
+    ],
   },
 ];
 
-/** 
+/**
  * Dummy OnCallEmployee data.
  * This would probably be pulled from the API of your on-call scheduling tool, such as PagerDuty.
  **/
 export const sampleOnCallEmployeeData: OnCallEmployee[] = [
   {
     id: 101,
-    name: 'John Doe',
-    email: 'john.doe@company.com',
-    phone: '555-555-5555',
-    slack: '@johndoe',
+    name: "John Doe",
+    email: "john.doe@company.com",
+    phone: "555-555-5555",
+    slack: "@johndoe",
     isOnCall: true,
   },
   {
     id: 102,
-    name: 'Jane Doe',
-    email: 'jane.doe@company.com',
-    phone: '555-555-5555',
-    slack: '@janedoe',
+    name: "Jane Doe",
+    email: "jane.doe@company.com",
+    phone: "555-555-5555",
+    slack: "@janedoe",
     isOnCall: false,
   },
   {
     id: 103,
-    name: 'John Smith',
-    email: 'john.smith@company.com',
-    phone: '555-555-5555',
-    slack: '@johnsmith',
+    name: "John Smith",
+    email: "john.smith@company.com",
+    phone: "555-555-5555",
+    slack: "@johnsmith",
     isOnCall: false,
   },
 ];
