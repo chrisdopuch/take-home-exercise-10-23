@@ -22,10 +22,10 @@ const OnCallEmployeesPage = ({ items }: Props) => (
 
 export const getServerSideProps: GetServerSideProps = async () => {
   try {
-    const url = process.env.VERCEL_URL || "http://localhost:3000";
-    console.log('URL: ', url + "/api/onCallEmployees")
+    const url = `http://${process.env.VERCEL_URL ? process.env.VERCEL_URL : "localhost:3000"}/api/onCallEmployees`;
+    console.log('URL: ', url)
     const sampleOnCallEmployeeData = await fetch(
-      url + "/api/onCallEmployees",
+      url,
     ).then((res) => res.json());
     console.log('Data: ', sampleOnCallEmployeeData)
     const items: OnCallEmployee[] = sampleOnCallEmployeeData;
