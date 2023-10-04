@@ -36,8 +36,9 @@ export default OnCallEmployeeDetailPage;
 // This function gets called at run time on server-side.
 export const getServerSideProps: GetServerSideProps = async (context) => {
   try {
+    const url = process.env.VERCEL_URL || "http://localhost:3000";
     const sampleOnCallEmployeeData = await fetch(
-      "http://localhost:3000/api/onCallEmployees",
+      url + "/api/onCallEmployees",
     ).then((res) => res.json());
 
     const id = context.query?.id;
