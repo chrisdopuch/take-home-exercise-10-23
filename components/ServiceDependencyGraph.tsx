@@ -41,14 +41,14 @@ const ServiceDependencyGraph = ({ service }: Props) => {
   const svgRef = useRef(null);
   const router = useRouter();
 
-  // Handle clicking on a node to navigate to the service detail page
-  const handleCircleClick = (data) => {
-    const { id } = data;
-    router.push(`/services/${id}`);
-  };
-
   useEffect(() => {
     const svg = d3.select(svgRef.current);
+
+    // Handle clicking on a node to navigate to the service detail page
+    const handleCircleClick = (data) => {
+      const { id } = data;
+      router.push(`/services/${id}`);
+    };
 
     // Define service dependency data
     const nodes = [
@@ -144,7 +144,7 @@ const ServiceDependencyGraph = ({ service }: Props) => {
       // Remove all d3 svg elements - this is a little hacky, but it works
       svg.selectAll("*").remove();
     };
-  }, [service, svgRef, handleCircleClick]);
+  }, [service, svgRef]);
 
   return (
     <div>
