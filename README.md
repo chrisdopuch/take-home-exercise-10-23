@@ -59,3 +59,4 @@ Here is where I'll put my notes while developing the application during the take
   - This is in opposition to SSG, which is build time - we want dynamic data when the user makes a request, not stale data from the time of the build
   - An even more advanced approach would be to refetch the data on the clientside using polling or websockets to pull fresh data in realtime as pods spin up and deployments tick over
 - I decided to add more details around source control and CI/CD pipelines to the Service details page, which I felt was useful
+- I chose to pull in the D3 library for data visualization - I thought it would be useful to display a graph of the service dependencies. You can see the status of the dependencies via the color, and you can click the nodes to navigate to those services.

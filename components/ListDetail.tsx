@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { ListItem } from "./ListItem";
 import { Status, Dependency } from "../interfaces";
+import ServiceDependencyGraph from "./ServiceDependencyGraph";
 
 type ListDetailProps = {
   item: ListItem;
@@ -103,6 +104,10 @@ const ListDetail = ({ item }: ListDetailProps) => (
           </a>
         </p>
       </section>
+    )}
+
+    {"upstreamDependencies" in item && (
+      <ServiceDependencyGraph service={item} />
     )}
 
     {"upstreamDependencies" in item && item.upstreamDependencies.length > 0 && (
