@@ -4,7 +4,7 @@ import { sampleServiceData } from "../../../utils/sample-data";
 const handler = (_req: NextApiRequest, res: NextApiResponse) => {
   try {
     if (!Array.isArray(sampleServiceData)) {
-      throw new Error("Cannot find user data");
+      throw new Error("Cannot find Service data");
     }
 
     // In a real-world application, this is where we would be fetching the data from an external API or database
