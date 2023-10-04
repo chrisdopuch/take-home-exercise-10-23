@@ -144,7 +144,7 @@ const ServiceDependencyGraph = ({ service }: Props) => {
       // Remove all d3 svg elements - this is a little hacky, but it works
       svg.selectAll("*").remove();
     };
-  }, [service, svgRef]);
+  }, [service, svgRef, handleCircleClick]);
 
   return (
     <div>
