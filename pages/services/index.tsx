@@ -2,10 +2,6 @@ import { GetServerSideProps } from "next";
 import Link from "next/link";
 
 import { OnCallEmployee, Service } from "../../interfaces";
-import {
-  sampleServiceData,
-  sampleOnCallEmployeeData,
-} from "../../utils/sample-data";
 import Layout from "../../components/Layout";
 import List from "../../components/List";
 
@@ -35,11 +31,22 @@ const ServicesPage = ({ items, onCallEmployee }: Props) => (
 );
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const items: Service[] = sampleServiceData;
-  const onCallEmployee: OnCallEmployee = sampleOnCallEmployeeData.filter(
-    (employee) => employee.isOnCall === true,
-  )[0];
-  return { props: { items, onCallEmployee } };
+  try {
+    // fetch list of services and on-call employees from API
+    const [sampleServiceData, sampleOnCallEmployeeData] = await Promise.all([
+      fetch("http://localhost:3000/api/services").then((res) => res.json()),
+      fetch("http://localhost:3000/api/onCallEmployees").then((res) =>
+        res.json(),
+      ),
+    ]);
+    const items: Service[] = sampleServiceData;
+    const onCallEmployee: OnCallEmployee = sampleOnCallEmployeeData.filter(
+      (employee) => employee.isOnCall === true,
+    )[0];
+    return { props: { items, onCallEmployee } };
+  } catch (err: any) {
+    return { props: { errors: err.message } };
+  }
 };
 
 export default ServicesPage;

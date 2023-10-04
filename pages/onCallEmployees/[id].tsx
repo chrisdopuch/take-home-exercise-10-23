@@ -1,7 +1,6 @@
 import { GetServerSideProps } from "next";
 
 import { OnCallEmployee } from "../../interfaces";
-import { sampleOnCallEmployeeData } from "../../utils/sample-data";
 import Layout from "../../components/Layout";
 import ListDetail from "../../components/ListDetail";
 
@@ -37,6 +36,10 @@ export default OnCallEmployeeDetailPage;
 // This function gets called at run time on server-side.
 export const getServerSideProps: GetServerSideProps = async (context) => {
   try {
+    const sampleOnCallEmployeeData = await fetch(
+      "http://localhost:3000/api/onCallEmployees",
+    ).then((res) => res.json());
+
     const id = context.query?.id;
     const item = sampleOnCallEmployeeData.find(
       (data) => data.id === Number(id),

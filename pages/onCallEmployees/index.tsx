@@ -2,7 +2,6 @@ import { GetServerSideProps } from "next";
 import Link from "next/link";
 
 import { OnCallEmployee } from "../../interfaces";
-import { sampleOnCallEmployeeData } from "../../utils/sample-data";
 import Layout from "../../components/Layout";
 import List from "../../components/List";
 
@@ -22,8 +21,15 @@ const OnCallEmployeesPage = ({ items }: Props) => (
 );
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const items: OnCallEmployee[] = sampleOnCallEmployeeData;
-  return { props: { items } };
+  try {
+    const sampleOnCallEmployeeData = await fetch(
+      "http://localhost:3000/api/onCallEmployees",
+    ).then((res) => res.json());
+    const items: OnCallEmployee[] = sampleOnCallEmployeeData;
+    return { props: { items } };
+  } catch (err: any) {
+    return { props: { errors: err.message } };
+  }
 };
 
 export default OnCallEmployeesPage;

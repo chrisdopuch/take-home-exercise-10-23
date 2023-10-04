@@ -2,10 +2,6 @@ import { GetServerSideProps } from "next";
 import Link from "next/link";
 
 import { OnCallEmployee, Service } from "../../interfaces";
-import {
-  sampleServiceData,
-  sampleOnCallEmployeeData,
-} from "../../utils/sample-data";
 import Layout from "../../components/Layout";
 import ListDetail from "../../components/ListDetail";
 
@@ -49,6 +45,13 @@ export default ServiceDetailPage;
 // This function gets called at run time on server-side.
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   try {
+    // fetch list of services and on-call employees from API
+    const [sampleServiceData, sampleOnCallEmployeeData] = await Promise.all([
+      fetch("http://localhost:3000/api/services").then((res) => res.json()),
+      fetch("http://localhost:3000/api/onCallEmployees").then((res) =>
+        res.json(),
+      ),
+    ]);
     const id = params?.id;
     const item = sampleServiceData.find((data) => data.id === Number(id));
     const onCallEmployee: OnCallEmployee = sampleOnCallEmployeeData.filter(
