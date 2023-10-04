@@ -22,9 +22,8 @@ const OnCallEmployeeDetailPage = ({ item, errors }: Props) => {
 
   return (
     <Layout
-      title={`${
-        item ? item.name : "On Call Employee Detail"
-      } | Developer Dashboard`}
+      title={`${item ? item.name : "On Call Employee Detail"
+        } | Developer Dashboard`}
     >
       {item && <ListDetail item={item} />}
     </Layout>
@@ -36,9 +35,9 @@ export default OnCallEmployeeDetailPage;
 // This function gets called at run time on server-side.
 export const getServerSideProps: GetServerSideProps = async (context) => {
   try {
-    const url = process.env.VERCEL_URL || "http://localhost:3000";
+    const url = `http://${process.env.VERCEL_URL ? process.env.VERCEL_URL : "localhost:3000"}/api/onCallEmployees`;
     const sampleOnCallEmployeeData = await fetch(
-      url + "/api/onCallEmployees",
+      url,
     ).then((res) => res.json());
 
     const id = context.query?.id;
