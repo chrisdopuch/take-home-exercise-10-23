@@ -46,12 +46,12 @@ export default ServiceDetailPage;
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   try {
     // fetch list of services and on-call employees from API
-    const url = `http://${process.env.VERCEL_URL ? process.env.VERCEL_URL : "localhost:3000"}`;
+    const url = `http://${
+      process.env.VERCEL_URL ? process.env.VERCEL_URL : "localhost:3000"
+    }`;
     const [sampleServiceData, sampleOnCallEmployeeData] = await Promise.all([
       fetch(`${url}/api/services`).then((res) => res.json()),
-      fetch(`${url}/api/onCallEmployees`).then((res) =>
-        res.json(),
-      ),
+      fetch(`${url}/api/onCallEmployees`).then((res) => res.json()),
     ]);
     const id = params?.id;
     const item = sampleServiceData.find((data) => data.id === Number(id));
